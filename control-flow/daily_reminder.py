@@ -23,4 +23,5 @@ else:
     else:
         reminder += "."
 
+print()
 print(reminder)
