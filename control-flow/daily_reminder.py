@@ -23,5 +23,4 @@ else:
     else:
         reminder += "."
 
-print()
-print(reminder)
+print(f"{reminder}")
