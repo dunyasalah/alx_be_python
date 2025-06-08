@@ -1,3 +1,7 @@
+# fns_and_dsa/shopping_list_manager.py
+
+shopping_list = []  # Global list
+
 def display_menu():
     print("\nShopping List Manager")
     print("1. Add Item")
@@ -6,10 +10,10 @@ def display_menu():
     print("4. Exit")
 
 def main():
-    shopping_list = []
     while True:
         display_menu()
         choice = input("Enter your choice: ")
+
         if not choice.isdigit():
             print("Invalid choice. Please enter a number.")
             continue
