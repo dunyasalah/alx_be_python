@@ -1,4 +1,3 @@
-
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
 
@@ -23,7 +22,7 @@ def main():
         result = convert_to_celsius(temp)
         print(f"{temp}°F is {result}°C")
     else:
-        print("Invalid unit! Please enter 'C' for Celsius or 'F' for Fahrenheit.")
+        print("Invalid unit! Please enter 'C' or 'F'.")
 
 if __name__ == "__main__":
     main()
