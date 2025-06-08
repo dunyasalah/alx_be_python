@@ -1,27 +1,50 @@
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
+KELVIN_OFFSET = 273.15
 
-def convert_to_celsius(fahrenheit):
-    return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+def celsius_to_fahrenheit(c):
+    return c * CELSIUS_TO_FAHRENHEIT_FACTOR + 32
 
-def convert_to_fahrenheit(celsius):
-    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
+def fahrenheit_to_celsius(f):
+    return (f - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+
+def celsius_to_kelvin(c):
+    return c + KELVIN_OFFSET
+
+def kelvin_to_celsius(k):
+    return k - KELVIN_OFFSET
 
 def main():
-    try:
-        temp = float(input("Enter the temperature to convert: "))
-        unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
-        
-        if unit == 'C':
-            converted = convert_to_fahrenheit(temp)
-            print(f"{temp}°C is {converted}°F")
-        elif unit == 'F':
-            converted = convert_to_celsius(temp)
-            print(f"{temp}°F is {converted}°C")
-        else:
-            print("Invalid unit entered. Please enter 'C' or 'F'.")
-    except ValueError:
-        print("Invalid temperature. Please enter a numeric value.")
+    while True:
+        print("\nTemperature Conversion Tool")
+        print("1. Celsius to Fahrenheit")
+        print("2. Fahrenheit to Celsius")
+        print("3. Celsius to Kelvin")
+        print("4. Kelvin to Celsius")
+        print("5. Exit")
+
+        choice = input("Enter your choice: ")
+
+        try:
+            if choice == '1':
+                c = float(input("Enter temperature in Celsius: "))
+                print(f"{c}°C = {celsius_to_fahrenheit(c):.2f}°F")
+            elif choice == '2':
+                f = float(input("Enter temperature in Fahrenheit: "))
+                print(f"{f}°F = {fahrenheit_to_celsius(f):.2f}°C")
+            elif choice == '3':
+                c = float(input("Enter temperature in Celsius: "))
+                print(f"{c}°C = {celsius_to_kelvin(c):.2f} K")
+            elif choice == '4':
+                k = float(input("Enter temperature in Kelvin: "))
+                print(f"{k} K = {kelvin_to_celsius(k):.2f}°C")
+            elif choice == '5':
+                print("Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input! Please enter a numeric value.")
 
 if __name__ == "__main__":
     main()
