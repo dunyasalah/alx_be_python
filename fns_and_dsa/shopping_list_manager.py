@@ -10,7 +10,6 @@ def main():
     while True:
         display_menu()
         choice = input("Enter your choice: ")
-
         if not choice.isdigit():
             print("Invalid choice. Please enter a number.")
             continue
